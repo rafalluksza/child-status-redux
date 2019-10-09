@@ -1,35 +1,40 @@
-import React, {useState} from 'react';
-import {addChild} from "./REDUX/actions/actions";
-import {connect} from "react-redux";
-import store from "./REDUX/store/store"
-import TableWithKids from "./components/TableWithKids";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import AdminPanel from "./components/Admin/AdminPanel";
+import AdminNav from "./components/Admin/AdminNav";
 
-
-const App =({addKid}) => {
-
-  const [name, setName] = useState("");
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  addKid(name);
-  console.log(store.getState());
-  setName("")
-}
-
+const App = () => {
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={e=>setName(e.target.value)}/>
-        <button type="submit">Go!</button>
-      </form>
-        <TableWithKids/>
-    </div>
+    <>
+      <Router>
+        <div>
+          {" "}
+          <AdminNav />
+          {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/admin">
+              <AdminPanel />
+            </Route>
+            <Route path="/users">
+              <Users />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
+};
+
+function Home() {
+  return <h2>Home</h2>;
 }
 
-const mapDispatch = dispatch => ({
-    addKid : name => dispatch(addChild(name))
+function Users() {
+  return <h2>Users</h2>;
+}
 
-})
-
-export default connect(null, mapDispatch)(App);
+export default App;
