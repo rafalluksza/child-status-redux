@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { connect } from "react-redux";
-import { deleteChild } from "../../REDUX/actions/actions";
+import {deleteChild, editChild} from "../../REDUX/actions/actions";
 import {Link, useRouteMatch} from "react-router-dom";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,10 +10,13 @@ import TableRow from "@material-ui/core/TableRow";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
-const TableWithKids = ({ children, deleteChild }) => {
+const TableWithKids = ({ children, deleteChild, editChild}) => {
 
+  const [id, setId] = useState("")
+  // console.log(children);
   const handleClick = (e, id) => {
     e.preventDefault();
+    setId(id);
     deleteChild(id);
   };
 
@@ -29,7 +32,7 @@ const TableWithKids = ({ children, deleteChild }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Object.values(children).map((child, index) => {
+          {children.map((child, index) => {
             return (
               <TableRow key={index}>
                 <TableCell>{child.name}</TableCell>
@@ -37,7 +40,7 @@ const TableWithKids = ({ children, deleteChild }) => {
                   <Button variant="contained" color="secondary" onClick={e => handleClick(e, index)}>Delete</Button>
                 </TableCell>
                 <TableCell>
-                  <Button variant="contained" color="primary" component={Link} to={`${url}/${index}`}> Edit</Button>
+                  <Button variant="contained" color="primary" onClick={()=> editChild(id)} component={Link} to={`${url}/${index}`}> Edit</Button>
                 </TableCell>
               </TableRow>
             );
@@ -50,12 +53,13 @@ const TableWithKids = ({ children, deleteChild }) => {
 
 const mapState = state => {
   return {
-    children: state.children.byId,
+    children: state,
   };
 };
 const mapDispatch = dispatch => {
   return {
-    deleteChild: id => dispatch(deleteChild(id))
+    deleteChild: id => dispatch(deleteChild(id)),
+    editChild: id => dispatch(editChild(id)),
   };
 };
 

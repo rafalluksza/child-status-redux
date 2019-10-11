@@ -33,8 +33,6 @@ const AdminPanel = () => {
 
         <Grid item xs={12}>
           <Switch>
-
-
             <Route path={`${path}/addchild`}>
               <AddKid />
             </Route>
@@ -44,7 +42,6 @@ const AdminPanel = () => {
             <Route path={`${path}/children/:id`}>
               <EditChild />
             </Route>
-
           </Switch>
         </Grid>
       </Grid>

@@ -39,7 +39,7 @@ const AddKid = ({ addKid }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addKid(values);
+    addKid({...values});
     setValues({
         name: "",
         surname: "",

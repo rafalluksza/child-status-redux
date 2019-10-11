@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import {Box, makeStyles} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import {editChild} from "../../REDUX/actions/actions";
+import {updateChild} from "../../REDUX/actions/actions";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const EditChild = ({children, edit}) => {
+const EditChild = ({children, updateChild}) => {
     let {id} = useParams();
     const nweChildren = Object.values(children)
     const child = nweChildren[id];
@@ -45,7 +45,7 @@ const EditChild = ({children, edit}) => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(values);
-        edit(values);
+        updateChild(Number(id), values);
         setValues({
             name: "",
             surname: "",
@@ -104,13 +104,13 @@ const EditChild = ({children, edit}) => {
 
 const mapState = (state) => {
     return {
-        children: state.children.byId,
+        children: state,
     }
 };
 
 const mapDispatch = dispatch => {
     return {
-        edit: values => dispatch(editChild(values)),
+        updateChild: (id, data) => dispatch(updateChild(id, data)),
     }
 }
 

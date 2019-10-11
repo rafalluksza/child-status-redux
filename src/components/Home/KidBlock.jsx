@@ -34,8 +34,7 @@ const KidBlock = ({ children }) => {
     <Container maxWidth={"xl"}>
       <div className={classes.box}>
         <Grid container spacing={1}>
-          {Object.values(children).map((child, index) => {
-            console.log(child, index)
+          {children.map((child, index) => {
             return (
               <Grid item xs={6} key={index}>
                 <Box className={classes.kidBox}>
@@ -54,7 +53,7 @@ const KidBlock = ({ children }) => {
 
 const mapState = state => {
   return {
-    children: state.children.byId,
+    children: state,
   };
 };
 
