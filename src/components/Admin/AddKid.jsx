@@ -30,7 +30,7 @@ const AddKid = ({ addKid }) => {
     name: "",
     surname: "",
     phone: "",
-    parentName: ""
+    parent: ""
   });
 
   const handleChange = name => event => {

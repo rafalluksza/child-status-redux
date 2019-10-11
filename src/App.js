@@ -1,15 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AdminPanel from "./components/Admin/AdminPanel";
-import AdminNav from "./components/Admin/AdminNav";
+import Navigation from "./components/Navigation";
+import Home from "./components/Home/Home";
+import { CssBaseline } from "@material-ui/core";
 
 const App = () => {
   return (
     <>
+      <CssBaseline />
       <Router>
         <div>
           {" "}
-          <AdminNav />
+          <Navigation />
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
@@ -28,10 +31,6 @@ const App = () => {
     </>
   );
 };
-
-function Home() {
-  return <h2>Home</h2>;
-}
 
 function Users() {
   return <h2>Users</h2>;

@@ -1,5 +1,6 @@
-export const ADD_CHILD = "Add Child";
-export const DELETE_CHILD = "Delete Child";
+export const ADD_CHILD = "[monitor] Add Child";
+export const DELETE_CHILD = "[monitor] Delete Child";
+export const EDIT_CHILD = "[monitor] Edit Child";
 
 export const addChild = (values) => {
     return {
@@ -14,3 +15,10 @@ export const deleteChild = (id) => {
         id: id
     }
 };
+
+export const editChild = (values) => {
+    return {
+        type: EDIT_CHILD,
+        values
+    }
+}
