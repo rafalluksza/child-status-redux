@@ -6,21 +6,24 @@ const initialState = [
         name: "Jan",
         parent: "Paweł",
         phone: "123456789",
-        surname: "Nowak"
+        surname: "Nowak",
+        photo: "https://images.unsplash.com/photo-1510516863697-99224a43369f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80"
       },
       {
         id: 1,
         name: "Paweł",
         parent: "Paweł",
         phone: "123456789",
-        surname: "Kura"
+        surname: "Kura",
+        photo: "https://images.unsplash.com/photo-1529672425113-d3035c7f4837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
       },
       {
         id: 2,
         name: "Maria",
         parent: "Paweł",
         phone: "123456789",
-        surname: "Ptak"
+        surname: "Ptak",
+        photo: "https://images.unsplash.com/photo-1534806391029-791d2695c38b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
       },
   ];
 

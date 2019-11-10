@@ -73,9 +73,9 @@ const AdminNav= () => {
                 <StyledMenuItem component={Link} to="/admin">
                     <ListItemText primary="Admin" />
                 </StyledMenuItem>
-                <StyledMenuItem>
-                    <ListItemText primary="Inbox" />
-                </StyledMenuItem>
+                {/*<StyledMenuItem>*/}
+                {/*    <ListItemText primary="Inbox" />*/}
+                {/*</StyledMenuItem>*/}
             </StyledMenu>
         </div>
     );
