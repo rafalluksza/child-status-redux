@@ -1,11 +1,11 @@
 import React from "react";
-import KidBlock from "./KidBlock"
+import KidsList from "./KidsList";
 
 
 const Home = () => {
     return (
         <div>
-            <KidBlock/>
+            <KidsList/>
         </div>
     )
 };

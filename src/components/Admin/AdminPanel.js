@@ -17,7 +17,7 @@ const AdminPanel = () => {
         <Grid item xs={12}>
           <ButtonGroup
             variant="contained"
-            color="primary"
+            color="secondary"
             aria-label="full-width contained primary button group"
             fullWidth
           >
@@ -27,7 +27,7 @@ const AdminPanel = () => {
             <Button component={Link} to={`${url}/addchild`}>
               Add child
             </Button>
-            <Button>Options</Button>
+            {/*<Button>Options</Button>*/}
           </ButtonGroup>
         </Grid>
 

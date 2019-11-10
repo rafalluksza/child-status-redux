@@ -11,10 +11,14 @@ const useStyles = makeStyles(theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
     },
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
+        width: "90%"
     },
     dense: {
         marginTop: theme.spacing(2),
@@ -22,6 +26,11 @@ const useStyles = makeStyles(theme => ({
     menu: {
         width: 200,
     },
+    btns: {
+        display: "flex",
+        justifyContent: "space-around",
+        paddingTop: 20
+    }
 }));
 
 
@@ -93,10 +102,10 @@ const EditChild = ({children, updateChild}) => {
                     margin="normal"
                     variant="filled"
                 />
-                <Box>
+                <div className={classes.btns}>
                     <Button variant="contained" color="secondary" type="submit">Save</Button>
                     <Button variant="contained" color="primary" >Exit</Button>
-                </Box>
+                </div>
             </form>
         </div>
     )

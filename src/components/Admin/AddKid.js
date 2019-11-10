@@ -3,25 +3,31 @@ import { addChild } from "../../REDUX/actions/actions";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from '@material-ui/core/styles';
-import {Box} from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-    },
-    dense: {
-        marginTop: theme.spacing(2),
-    },
-    menu: {
-        width: 200,
-    },
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: "90%"
+  },
+  dense: {
+    marginTop: theme.spacing(2)
+  },
+  menu: {
+    width: 200
+  },
+  buttonAdd: {
+    textAlign: "right",
+    marginRight: 30
+  }
 }));
 
 const AddKid = ({ addKid }) => {
@@ -39,12 +45,13 @@ const AddKid = ({ addKid }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addKid({...values});
+    addKid({ ...values });
     setValues({
-        name: "",
-        surname: "",
-        phone: "",
-        parent: ""});
+      name: "",
+      surname: "",
+      phone: "",
+      parent: ""
+    });
   };
 
   return (
@@ -86,9 +93,11 @@ const AddKid = ({ addKid }) => {
           margin="normal"
           variant="filled"
         />
-        <Box>
-        <Button variant="contained" color="secondary" type="submit">Add</Button>
-        </Box>
+        <div className={classes.buttonAdd}>
+          <Button variant="contained" color="secondary" type="submit">
+            Add
+          </Button>
+        </div>
       </form>
     </div>
   );
