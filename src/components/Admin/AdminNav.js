@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from "react-router-dom";
 
@@ -38,7 +37,13 @@ const StyledMenuItem = withStyles(theme => ({
     },
 }))(MenuItem);
 
+const useStyles = makeStyles(theme => ({
+
+}));
+
 const AdminNav= () => {
+    const classes = useStyles();
+
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = event => {
@@ -73,9 +78,6 @@ const AdminNav= () => {
                 <StyledMenuItem component={Link} to="/admin">
                     <ListItemText primary="Admin" />
                 </StyledMenuItem>
-                {/*<StyledMenuItem>*/}
-                {/*    <ListItemText primary="Inbox" />*/}
-                {/*</StyledMenuItem>*/}
             </StyledMenu>
         </div>
     );

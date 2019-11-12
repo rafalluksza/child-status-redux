@@ -12,7 +12,7 @@ import Avatar from "@material-ui/core/Avatar";
 const useStyles = makeStyles({
   listItem: {
     height: 60,
-    width: "80vw",
+    width: "80%",
     borderBottom: "1px solid black",
     margin: "auto"
   }

@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import {useParams} from "react-router-dom";
 
 import TextField from "@material-ui/core/TextField";
-import {Box, makeStyles} from "@material-ui/core";
+import { makeStyles} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import {updateChild} from "../../REDUX/actions/actions";
+import {updateChild} from "../../Redux/actions/actions";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -15,9 +15,13 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center",
         justifyContent: "center"
     },
+    form: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+    },
     textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
         width: "90%"
     },
     dense: {
@@ -28,8 +32,17 @@ const useStyles = makeStyles(theme => ({
     },
     btns: {
         display: "flex",
+        width: 250,
         justifyContent: "space-around",
         paddingTop: 20
+    },
+    btnSave: {
+        backgroundColor: "#E84785",
+        color: "white"
+    },
+    btnExit: {
+        backgroundColor: "#D8E2DC",
+        color: "black"
     }
 }));
 
@@ -65,7 +78,7 @@ const EditChild = ({children, updateChild}) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className={classes.form} onSubmit={handleSubmit}>
                 <TextField
                     id="filled-name"
                     label="Name"
@@ -103,8 +116,8 @@ const EditChild = ({children, updateChild}) => {
                     variant="filled"
                 />
                 <div className={classes.btns}>
-                    <Button variant="contained" color="secondary" type="submit">Save</Button>
-                    <Button variant="contained" color="primary" >Exit</Button>
+                    <Button className={classes.btnSave} variant="contained"  type="submit">Save</Button>
+                    <Button className={classes.btnExit} variant="contained"  >Exit</Button>
                 </div>
             </form>
         </div>

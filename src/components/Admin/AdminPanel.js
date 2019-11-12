@@ -7,9 +7,19 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import TableWithKids from "./TableWithKids";
 import EditChild from "./EditChild";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+  btn: {
+    backgroundColor: "#FFE5D9",
+    color: "black"
+  }
+}));
 
 const AdminPanel = () => {
-  let { url, path} = useRouteMatch();
+  const classes = useStyles();
+
+  let { url, path } = useRouteMatch();
 
   return (
     <div>
@@ -17,14 +27,21 @@ const AdminPanel = () => {
         <Grid item xs={12}>
           <ButtonGroup
             variant="contained"
-            color="secondary"
             aria-label="full-width contained primary button group"
             fullWidth
           >
-            <Button component={Link} to={`${url}/children`}>
+            <Button
+              className={classes.btn}
+              component={Link}
+              to={`${url}/children`}
+            >
               Children
             </Button>
-            <Button component={Link} to={`${url}/addchild`}>
+            <Button
+              className={classes.btn}
+              component={Link}
+              to={`${url}/addchild`}
+            >
               Add child
             </Button>
             {/*<Button>Options</Button>*/}
