@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addChild } from "../../REDUX/actions/actions";
+import { addChild } from "../../Redux/actions/actions";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -13,9 +13,13 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "center"
   },
+  form: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
     width: "90%"
   },
   dense: {
@@ -25,8 +29,11 @@ const useStyles = makeStyles(theme => ({
     width: 200
   },
   buttonAdd: {
-    textAlign: "right",
-    marginRight: 30
+    alignSelf: "flex-end",
+    marginRight: 30,
+    marginTop: 30,
+    backgroundColor: "#E84785",
+    color: "white"
   }
 }));
 
@@ -56,7 +63,7 @@ const AddKid = ({ addKid }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={classes.form} onSubmit={handleSubmit}>
         <TextField
           id="filled-name"
           label="Name"
@@ -93,11 +100,11 @@ const AddKid = ({ addKid }) => {
           margin="normal"
           variant="filled"
         />
-        <div className={classes.buttonAdd}>
-          <Button variant="contained" color="secondary" type="submit">
+        {/*<div >*/}
+          <Button className={classes.buttonAdd} variant="contained" type="submit">
             Add
           </Button>
-        </div>
+        {/*</div>*/}
       </form>
     </div>
   );
