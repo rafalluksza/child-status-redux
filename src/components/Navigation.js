@@ -9,6 +9,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
+import {COLOR_PRIMARY_DARK, COLOR_PRIMARY_LIGHT, COLOR_SECONDARY} from "./Variables/colors";
 
 const StyledMenu = withStyles({
   paper: {
@@ -48,17 +49,17 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     borderRadius: "8px",
-    backgroundColor: "#D8E2DC"
+    backgroundColor: COLOR_PRIMARY_DARK
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: "#E84785"
+    backgroundColor: COLOR_SECONDARY
   },
   title: {
     flexGrow: 1
   },
   menuItem: {
-    backgroundColor: "#9E315A"
+    backgroundColor: COLOR_SECONDARY
   }
 }));
 

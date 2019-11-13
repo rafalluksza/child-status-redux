@@ -8,11 +8,15 @@ import { Switch, Route } from "react-router-dom";
 import TableWithKids from "./TableWithKids";
 import EditChild from "./EditChild";
 import { makeStyles } from "@material-ui/core";
+import {COLOR_BACKGROUND, COLOR_SECONDARY} from "../Variables/colors";
 
 const useStyles = makeStyles(theme => ({
   btn: {
-    backgroundColor: "#FFE5D9",
-    color: "black"
+    backgroundColor: COLOR_SECONDARY,
+    color: "white",
+    "&:hover" : {
+      backgroundColor: "#E84785",
+    },
   }
 }));
 
@@ -35,7 +39,7 @@ const AdminPanel = () => {
               component={Link}
               to={`${url}/children`}
             >
-              Children
+              Children List
             </Button>
             <Button
               className={classes.btn}
