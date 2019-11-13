@@ -4,6 +4,7 @@ import KidsList from "./KidsList";
 import { makeStyles } from "@material-ui/core";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import {COLOR_SECONDARY} from "../Variables/colors";
 
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         position: "absolute",
         right: 20,
         bottom: 0,
-        backgroundColor: "#E84785",
+        backgroundColor: COLOR_SECONDARY,
         fontSize: 30,
     }
 }));
